@@ -10,11 +10,11 @@ public class Rectangle {
         this.height = height;
     }
 
-    public float getPerimeter() {
+    public float calculatePerimeter() {
         return 2 * (width + height);
     }
 
-    public float getArea() {
+    public float calculateArea() {
         return width * height;
     }
 }

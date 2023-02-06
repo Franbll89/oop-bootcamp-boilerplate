@@ -18,7 +18,7 @@ public class RectangleTest {
     @Test
     public void itShouldReturnPerimeter() {
 
-        float result = rectangle.getPerimeter();
+        float result = rectangle.calculatePerimeter();
         float expected = 14;
 
         assertEquals(result, expected);
@@ -27,7 +27,7 @@ public class RectangleTest {
     @Test
     public void itShouldReturnArea() {
 
-        float result = rectangle.getArea();
+        float result = rectangle.calculateArea();
         float expected = 10;
 
         assertEquals(result, expected);
