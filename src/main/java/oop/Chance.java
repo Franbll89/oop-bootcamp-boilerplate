@@ -2,13 +2,12 @@ package oop;
 
 public class Chance {
 
-    public double calculateChanceToGetASixFromADice() {
+    public double calculateChanceToGetASixFromADiceRoll() {
         return 1.0 / 6;
     }
 
-    public double calculateChanceToNotGetASixFromADice() {
+    public double calculateChanceToNotGetASixFromADiceRoll() {
         return 1 - 1.0 / 6;
     }
-
 
 }

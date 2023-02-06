@@ -17,14 +17,14 @@ class ChanceTest {
     @Test
     void itShouldCalculateChanceToGetASix() {
 
-        double result = chance.calculateChanceToGetASixFromADice();
+        double result = chance.calculateChanceToGetASixFromADiceRoll();
         assertEquals(result, 1.0 / 6);
     }
 
     @Test
     void itShouldCalculateChanceToNotGetASix() {
 
-        double result = chance.calculateChanceToNotGetASixFromADice();
+        double result = chance.calculateChanceToNotGetASixFromADiceRoll();
         double expected = 1 - 1.0 / 6;
         assertEquals(result, expected);
     }
