@@ -31,10 +31,10 @@ class ChanceTest {
 
     @Test
     void itShouldCalculateOddsOfTwoChances() {
+        Chance chance = new Chance(0.1);
+        Chance result = chance.calculateOddsOfTwoChances(new Chance(0.1));
+        double expected = Math.pow(0.1, 2);
 
-        double result = chance.calculateOddsOfTwoChances();
-        double expected = Math.pow((1.0 / 6), 2);
-
-        assertEquals(result, expected);
+        assertEquals(result.getValue(), expected);
     }
 }

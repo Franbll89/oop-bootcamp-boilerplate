@@ -8,3 +8,8 @@ build/
 target/
 /out/production/classes/*
 /out/test/classes/*
+
+#ignore .DS_Store
+**/.DS_Store
+
+
