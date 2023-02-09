@@ -66,9 +66,10 @@ class CarAssistantTest {
         assistant.addParkingLot(parking1);
         assistant.addParkingLot(parking2);
         assistant.assistParking(new Car("LOV-90"));
-        assistant.assistParking(new Car("LOV-91", Car.Size.LARGE));
+        Car largeCar = new LargeCar("LOV-91");
+        assistant.assistParking(largeCar);
 
-
+        assertTrue(parking2.getParkedCarList().contains(largeCar));
     }
 
 }
