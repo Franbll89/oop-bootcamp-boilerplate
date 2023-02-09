@@ -13,12 +13,13 @@ public class CarAssistant {
     }
 
     public void assistParking(Car car){
-        ParkingLot actualParkingLot = this.parkingLots.get(0);
-        if (isParkingAvailable(actualParkingLot)){
-            actualParkingLot.park(car);
-        }
-        else{
-            System.out.println("Parking lot is full! Please try it later!");
+        for(ParkingLot parkingLot: this.parkingLots){
+            if (isParkingAvailable(parkingLot)){
+                parkingLot.park(car);
+            }
+            else{
+                System.out.println("Parking lot is full! Please try it later!");
+            }
         }
     }
 
@@ -27,7 +28,7 @@ public class CarAssistant {
     }
 
     public List<Car> getParkedCar() {
-        return parkingLots.get(0).getParkedCarList();
+        List<Car>
     }
 
 
@@ -44,7 +45,7 @@ public class CarAssistant {
     }
 
     private static boolean isBelow80Percent(ParkingLot parkingLot) {
-        return (parkingLot.getParkedCarList().size() * 100 / ParkingLot.PARKING_LOT_MAXIMUM_CAPACITY_PERCENTAGE) >= MAXIMUM_PARKED_CARS_CAPACITY;
+        return (parkingLot.getParkedCarList().size() * 100 / parkingLot.getCapacity()) >= MAXIMUM_PARKED_CARS_CAPACITY;
     }
 
 }

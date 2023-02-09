@@ -8,7 +8,7 @@ class ParkingLotTest {
 
     @Test
     public void itShouldParkACar() {
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
 
         parkingLot.park(new Car("LOV-95"));
 
@@ -17,7 +17,7 @@ class ParkingLotTest {
 
     @Test
     public void itShouldExitAGivenCar() {
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
 
         parkingLot.park(new Car("LOV-96"));
         Car targetCar = parkingLot.returnCar(new Car("LOV-96"));

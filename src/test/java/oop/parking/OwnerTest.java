@@ -9,7 +9,7 @@ class OwnerTest {
     @Test
     public void itShouldReturnTheUsedPercentageOfParkingLot() {
         Owner owner = new Owner();
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         parkingLot.addPropertyChangeListener(owner);
 
         parkingLot.park(new Car("LOV-90"));
@@ -24,7 +24,7 @@ class OwnerTest {
     @Test
     public void itShouldNotifyTheOwnerIfPercentageIsUnder20Percent() {
         Owner owner = new Owner();
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         parkingLot.addPropertyChangeListener(owner);
 
         parkingLot.park(new Car("LOV-90"));
@@ -37,7 +37,7 @@ class OwnerTest {
     @Test
     public void itShouldNotNotifyTheOwnerIfPercentageIsUnder20Percent() {
         Owner owner = new Owner();
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         parkingLot.addPropertyChangeListener(owner);
 
         parkingLot.park(new Car("LOV-90"));

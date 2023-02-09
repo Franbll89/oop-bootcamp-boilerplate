@@ -8,13 +8,19 @@ import java.util.List;
 public class ParkingLot {
 
     private static final int LIMIT_PERCENTAGE_TO_NOTIFY = 75;
-    public static final int PARKING_LOT_MAXIMUM_CAPACITY_PERCENTAGE = 10;
     private List<Car> parkedCarList = new ArrayList<>();
+
+    public Integer getCapacity() {
+        return capacity;
+    }
+
+    private Integer capacity;
 
     private PropertyChangeSupport support;
 
-    public ParkingLot() {
+    public ParkingLot(Integer capacity) {
         this.support = new PropertyChangeSupport(this);
+        this.capacity = capacity;
     }
 
     public void addPropertyChangeListener(PropertyChangeListener pcl) {
@@ -41,11 +47,11 @@ public class ParkingLot {
     }
 
     private boolean is75Percent() {
-        return (this.parkedCarList.size() * 100 / PARKING_LOT_MAXIMUM_CAPACITY_PERCENTAGE) == LIMIT_PERCENTAGE_TO_NOTIFY;
+        return (this.parkedCarList.size() * 100 / this.capacity) == LIMIT_PERCENTAGE_TO_NOTIFY;
     }
 
     private double checkPercentage(){
-        return this.parkedCarList.size() * 100 / PARKING_LOT_MAXIMUM_CAPACITY_PERCENTAGE;
+        return this.parkedCarList.size() * 100 / this.capacity;
     }
 
 }

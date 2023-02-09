@@ -3,6 +3,8 @@ package oop.parking;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CarAssistantTest {
@@ -11,13 +13,13 @@ class CarAssistantTest {
     @BeforeEach
     void setup(){
         carAssistant = new CarAssistant();
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         carAssistant.addParkingLot(parkingLot);
     }
 
     @Test
     public void itShouldAddAParkingLot() {
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
 
         carAssistant.addParkingLot(parkingLot);
 
@@ -41,18 +43,20 @@ class CarAssistantTest {
 
     @Test
     public void itShouldNotParkTheCar() {
-        carAssistant.assistParking(new Car("LOV-90"));
-        carAssistant.assistParking(new Car("LOV-91"));
-        carAssistant.assistParking(new Car("LOV-92"));
-        carAssistant.assistParking(new Car("LOV-93"));
-        carAssistant.assistParking(new Car("LOV-94"));
-        carAssistant.assistParking(new Car("LOV-95"));
-        carAssistant.assistParking(new Car("LOV-96"));
-        carAssistant.assistParking(new Car("LOV-97"));
+        ParkingLot parking1 = new ParkingLot(1);
+        ParkingLot parking2 = new ParkingLot(5);
+        CarAssistant assistant = new CarAssistant();
+        assistant.addParkingLot(parking1);
+        assistant.addParkingLot(parking2);
+        assistant.assistParking(new Car("LOV-90"));
+        assistant.assistParking(new Car("LOV-91"));
+        assistant.assistParking(new Car("LOV-92"));
+        assistant.assistParking(new Car("LOV-93"));
+        assistant.assistParking(new Car("LOV-94"));
+        assistant.assistParking(new Car("LOV-95"));
 
-        carAssistant.assistParking(new Car("LOV-98"));
-
-        assertFalse(carAssistant.getParkedCar().contains(new Car("LOV-98")));
+        assertTrue(assistant.getParkedCar().contains(new Car("LOV-94")));
+        assertFalse(assistant.getParkedCar().contains(new Car("LOV-95")));
 
     }
 
