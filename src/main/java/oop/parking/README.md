@@ -13,4 +13,5 @@
     I (owner) want to be notified when parking lot usage is less than 20% so that I can close down some parkings
     </li>
     <li>A parking lot assistant parks large cars in the parking lot with the least % of usage</li>
+    <li>A parking lot assistant parks handicapped cars in the first parking lot that accepts handicapped cars</li>
 </ol> </h1> <br>
