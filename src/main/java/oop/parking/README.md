@@ -14,4 +14,5 @@
     </li>
     <li>A parking lot assistant parks large cars in the parking lot with the least % of usage</li>
     <li>A parking lot assistant parks handicapped cars in the first parking lot that accepts handicapped cars</li>
+    <li>A parking lot assistant can only park fancy cars (e.g.: Lamborghinis, Ferraris, …) if she/he's certified for it</li>
 </ol> </h1> <br>

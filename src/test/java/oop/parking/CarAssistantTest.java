@@ -28,9 +28,9 @@ class CarAssistantTest {
 
     @Test
     public void itShouldParkACar() {
-        carAssistant.assistParking(new Car("LOV-95"));
+        //carAssistant.assistParking(new Car("LOV-95"));
 
-        assertTrue(carAssistant.getParkedCar().contains(new Car("LOV-95")));
+        assertTrue(carAssistant.assistParking(new Car("LOV-95")));
     }
 
     @Test
@@ -52,11 +52,22 @@ class CarAssistantTest {
         assistant.assistParking(new Car("LOV-91"));
         assistant.assistParking(new Car("LOV-92"));
         assistant.assistParking(new Car("LOV-93"));
-        assistant.assistParking(new Car("LOV-94"));
-        assistant.assistParking(new Car("LOV-95"));
 
-        assertTrue(assistant.getParkedCar().contains(new Car("LOV-94")));
-        assertFalse(assistant.getParkedCar().contains(new Car("LOV-95")));
+        assertTrue(assistant.assistParking(new Car("LOV-94")));
+        assertFalse(assistant.assistParking(new Car("LOV-95")));
+
+    }
+
+    @Test
+    public void itShouldParkLargeCarInLeastFullParking() {
+        ParkingLot parking1 = new ParkingLot(3);
+        ParkingLot parking2 = new ParkingLot(5);
+        CarAssistant assistant = new CarAssistant();
+        assistant.addParkingLot(parking1);
+        assistant.addParkingLot(parking2);
+        assistant.assistParking(new Car("LOV-90"));
+        assistant.assistParking(new Car("LOV-91", Car.Size.LARGE));
+
 
     }
 

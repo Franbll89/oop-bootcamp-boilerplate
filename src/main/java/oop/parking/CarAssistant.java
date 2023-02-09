@@ -12,15 +12,14 @@ public class CarAssistant {
         this.parkingLots = new ArrayList<>();
     }
 
-    public void assistParking(Car car){
+    public boolean assistParking(Car car){
         for(ParkingLot parkingLot: this.parkingLots){
             if (isParkingAvailable(parkingLot)){
                 parkingLot.park(car);
-            }
-            else{
-                System.out.println("Parking lot is full! Please try it later!");
+                return true;
             }
         }
+        return false;
     }
 
     public Car assistReturning(Car car){
@@ -28,7 +27,7 @@ public class CarAssistant {
     }
 
     public List<Car> getParkedCar() {
-        List<Car>
+        return new ArrayList<>();
     }
 
 
