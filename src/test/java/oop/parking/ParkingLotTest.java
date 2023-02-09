@@ -10,19 +10,19 @@ class ParkingLotTest {
     public void itShouldParkACar() {
         ParkingLot parkingLot = new ParkingLot();
 
-        parkingLot.park("LOV-95");
+        parkingLot.park(new Car("LOV-95"));
 
-        assertTrue(parkingLot.getParkedCarList().contains("LOV-95"));
+        assertTrue(parkingLot.getParkedCarList().contains(new Car("LOV-95")));
     }
 
     @Test
     public void itShouldExitAGivenCar() {
         ParkingLot parkingLot = new ParkingLot();
 
-        parkingLot.park("LOV-96");
-        String targetCar = parkingLot.returnCar("LOV-96");
+        parkingLot.park(new Car("LOV-96"));
+        Car targetCar = parkingLot.returnCar(new Car("LOV-96"));
 
-        assertEquals("LOV-96", targetCar);
+        assertEquals(new Car("LOV-96"), targetCar);
     }
 
 }

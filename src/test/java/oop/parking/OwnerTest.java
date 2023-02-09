@@ -12,10 +12,10 @@ class OwnerTest {
         ParkingLot parkingLot = new ParkingLot();
         parkingLot.addPropertyChangeListener(owner);
 
-        parkingLot.park("LOV-90");
-        parkingLot.park("LOV-91");
-        parkingLot.park("LOV-92");
-        parkingLot.park("LOV-93");
+        parkingLot.park(new Car("LOV-90"));
+        parkingLot.park(new Car("LOV-91"));
+        parkingLot.park(new Car("LOV-92"));
+        parkingLot.park(new Car("LOV-93"));
 
         assertEquals(40.0, owner.getUsedCapacityPercentage());
 
@@ -27,7 +27,7 @@ class OwnerTest {
         ParkingLot parkingLot = new ParkingLot();
         parkingLot.addPropertyChangeListener(owner);
 
-        parkingLot.park("LOV-90");
+        parkingLot.park(new Car("LOV-90"));
         boolean actual = owner.isUsedCapacityPercentageUnder20Percent();
 
         assertTrue(actual);
@@ -40,9 +40,9 @@ class OwnerTest {
         ParkingLot parkingLot = new ParkingLot();
         parkingLot.addPropertyChangeListener(owner);
 
-        parkingLot.park("LOV-90");
-        parkingLot.park("LOV-91");
-        parkingLot.park("LOV-92");
+        parkingLot.park(new Car("LOV-90"));
+        parkingLot.park(new Car("LOV-91"));
+        parkingLot.park(new Car("LOV-92"));
         boolean actual = owner.isUsedCapacityPercentageUnder20Percent();
 
         assertFalse(actual);

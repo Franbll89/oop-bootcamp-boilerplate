@@ -9,7 +9,7 @@ public class ParkingLot {
 
     private static final int LIMIT_PERCENTAGE_TO_NOTIFY = 75;
     public static final int PARKING_LOT_MAXIMUM_CAPACITY_PERCENTAGE = 10;
-    private List<String> parkedCarList = new ArrayList<>();
+    private List<Car> parkedCarList = new ArrayList<>();
 
     private PropertyChangeSupport support;
 
@@ -21,18 +21,18 @@ public class ParkingLot {
         support.addPropertyChangeListener(pcl);
     }
 
-    public void park(String car) {
+    public void park(Car car) {
         double percentageBeforeParking = checkPercentage();
         this.parkedCarList.add(car);
         support.firePropertyChange("usedCapacityPercentage", percentageBeforeParking, checkPercentage());
     }
 
-    public List<String> getParkedCarList() {
+    public List<Car> getParkedCarList() {
         return parkedCarList;
     }
 
-    public String returnCar(String targetCar) {
-        for (String car : parkedCarList) {
+    public Car returnCar(Car targetCar) {
+        for (Car car : parkedCarList) {
             if (car.equals(targetCar)){
                 return car;
             }

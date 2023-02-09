@@ -1,7 +1,5 @@
 package oop.parking;
 
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +12,7 @@ public class CarAssistant {
         this.parkingLots = new ArrayList<>();
     }
 
-    public void assistParking(String car){
+    public void assistParking(Car car){
         ParkingLot actualParkingLot = this.parkingLots.get(0);
         if (isParkingAvailable(actualParkingLot)){
             actualParkingLot.park(car);
@@ -24,11 +22,11 @@ public class CarAssistant {
         }
     }
 
-    public String assistReturning(String car){
+    public Car assistReturning(Car car){
         return this.parkingLots.get(0).returnCar(car);
     }
 
-    public List<String> getParkedCar() {
+    public List<Car> getParkedCar() {
         return parkingLots.get(0).getParkedCarList();
     }
 
