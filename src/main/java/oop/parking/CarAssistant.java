@@ -13,13 +13,7 @@ public class CarAssistant {
     }
 
     public boolean assistParking(Car car){
-        for(ParkingLot parkingLot: this.parkingLots){
-            if (isParkingAvailable(parkingLot)){
-                parkingLot.park(car);
-                return true;
-            }
-        }
-        return false;
+        return car.parkCar(this);
     }
 
     public Car assistReturning(Car car){

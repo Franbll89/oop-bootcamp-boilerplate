@@ -1,18 +1,17 @@
 package oop.parking;
 
-import java.util.List;
+import java.util.Comparator;
 
-public class LargeCar extends Car implements ParkingStrategy {
+public class LargeCar extends Car {
 
     public LargeCar(String plate) {
         super(plate, Size.LARGE);
     }
 
     @Override
-    public boolean parkCar(List<ParkingLot> parkingLots) {
-        // check all capacity
-        parkingLots.stream().min()
-        // park in lowest used
-        return false;
+    public boolean parkCar(CarAssistant carAssistant) {
+        return carAssistant.getParkingLots().stream().min(
+            Comparator.comparingDouble(ParkingLot::checkPercentage)
+        ).get().park(this);
     }
 }

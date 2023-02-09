@@ -27,10 +27,11 @@ public class ParkingLot {
         support.addPropertyChangeListener(pcl);
     }
 
-    public void park(Car car) {
+    public boolean park(Car car) {
         double percentageBeforeParking = checkPercentage();
-        this.parkedCarList.add(car);
+        boolean parked = this.parkedCarList.add(car);
         support.firePropertyChange("usedCapacityPercentage", percentageBeforeParking, checkPercentage());
+        return parked;
     }
 
     public List<Car> getParkedCarList() {
@@ -50,7 +51,7 @@ public class ParkingLot {
         return (this.parkedCarList.size() * 100 / this.capacity) == LIMIT_PERCENTAGE_TO_NOTIFY;
     }
 
-    private double checkPercentage(){
+    public double checkPercentage(){
         return this.parkedCarList.size() * 100 / this.capacity;
     }
 

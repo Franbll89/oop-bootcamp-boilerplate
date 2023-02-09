@@ -2,10 +2,15 @@ package oop.parking;
 
 import java.util.Objects;
 
-public class Car {
+public class Car implements ParkingStrategy {
 
     private String plate;
     private Size size;
+
+    @Override
+    public boolean parkCar(CarAssistant carAssistant) {
+        return false;
+    }
 
     public enum Size{
         NORMAL,
