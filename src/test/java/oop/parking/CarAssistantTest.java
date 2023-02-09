@@ -1,6 +1,5 @@
 package oop.parking;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +12,6 @@ class CarAssistantTest {
     void setup(){
         carAssistant = new CarAssistant();
         ParkingLot parkingLot = new ParkingLot();
-
         carAssistant.addParkingLot(parkingLot);
     }
 
@@ -43,22 +41,18 @@ class CarAssistantTest {
 
     @Test
     public void itShouldNotParkTheCar() {
-        CarAssistant carAssistant1 = new CarAssistant();
-        ParkingLot parkingLot = new ParkingLot();
-        parkingLot.park("LOV-90");
-        parkingLot.park("LOV-91");
-        parkingLot.park("LOV-92");
-        parkingLot.park("LOV-93");
-        parkingLot.park("LOV-94");
-        parkingLot.park("LOV-95");
-        parkingLot.park("LOV-96");
-        parkingLot.park("LOV-97");
+        carAssistant.assistParking("LOV-90");
+        carAssistant.assistParking("LOV-91");
+        carAssistant.assistParking("LOV-92");
+        carAssistant.assistParking("LOV-93");
+        carAssistant.assistParking("LOV-94");
+        carAssistant.assistParking("LOV-95");
+        carAssistant.assistParking("LOV-96");
+        carAssistant.assistParking("LOV-97");
 
-        carAssistant1.addParkingLot(parkingLot);
-        carAssistant1.assistParking("LOV-98");
+        carAssistant.assistParking("LOV-98");
 
-        assertFalse(carAssistant1.getParkedCar().contains("LOV-98"));
-        //assertEquals(8, carAssistant1.getParkedCar().size());
+        assertFalse(carAssistant.getParkedCar().contains("LOV-98"));
 
     }
 

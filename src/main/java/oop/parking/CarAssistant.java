@@ -1,10 +1,13 @@
 package oop.parking;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CarAssistant {
 
+    private static final int MAXIMUM_PARKED_CARS_CAPACITY = 80;
     private List<ParkingLot> parkingLots;
 
     public CarAssistant() {
@@ -13,11 +16,11 @@ public class CarAssistant {
 
     public void assistParking(String car){
         ParkingLot actualParkingLot = this.parkingLots.get(0);
-        if (actualParkingLot.getParkedCarList().size()<ParkingLot.PARKING_MAXIMUM_CAPACITY-2){
-            this.parkingLots.get(0).park(car);
+        if (isParkingAvailable(actualParkingLot)){
+            actualParkingLot.park(car);
         }
         else{
-            System.out.println("Parking lot is almost full!");
+            System.out.println("Parking lot is full! Please try it later!");
         }
     }
 
@@ -37,4 +40,13 @@ public class CarAssistant {
     public void addParkingLot(ParkingLot parkingLot) {
         parkingLots.add(parkingLot);
     }
+
+    public boolean isParkingAvailable(ParkingLot parkingLot){
+        return !isBelow80Percent(parkingLot);
+    }
+
+    private static boolean isBelow80Percent(ParkingLot parkingLot) {
+        return (parkingLot.getParkedCarList().size() * 100 / ParkingLot.PARKING_LOT_MAXIMUM_CAPACITY_PERCENTAGE) >= MAXIMUM_PARKED_CARS_CAPACITY;
+    }
+
 }
