@@ -2,6 +2,8 @@ package oop.stringCalculator;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -12,23 +14,25 @@ class StringCalculatorTest {
     void setup(){
         stringCalculator = new StringCalculator();
     }
-    
-    @Test
-    void itShouldReturn0() {
-        assertEquals(0, stringCalculator.add(""));
+
+    @ParameterizedTest
+    @CsvSource({"'',0"})
+    void itShouldReturn0(String inputs, Integer expected) {
+        assertEquals(expected, stringCalculator.add(inputs));
         
     }
 
-    @Test
+    @ParameterizedTest
+    @CsvSource({"2',2"})
     void itShouldReturnSingleNumber() {
         assertEquals(2, stringCalculator.add("2"));
 
     }
 
-    @Test
+    @ParameterizedTest
+    @CsvSource({"'1,2',3"})
     void itShouldReturnSumOfTwoNumbers() {
         assertEquals(3, stringCalculator.add("1,2"));
-
     }
 
 }
