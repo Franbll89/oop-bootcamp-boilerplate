@@ -23,16 +23,16 @@ class StringCalculatorTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"2',2"})
-    void itShouldReturnSingleNumber() {
-        assertEquals(2, stringCalculator.add("2"));
+    @CsvSource({"2,2"})
+    void itShouldReturnSingleNumber(String inputs, Integer expected) {
+        assertEquals(expected, stringCalculator.add(inputs));
 
     }
 
     @ParameterizedTest
     @CsvSource({"'1,2',3"})
-    void itShouldReturnSumOfTwoNumbers() {
-        assertEquals(3, stringCalculator.add("1,2"));
+    void itShouldReturnSumOfTwoNumbers(String inputs, Integer expected) {
+        assertEquals(expected, stringCalculator.add(inputs));
     }
 
 }
