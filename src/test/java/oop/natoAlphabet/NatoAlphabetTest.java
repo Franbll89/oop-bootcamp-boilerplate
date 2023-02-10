@@ -34,4 +34,18 @@ class NatoAlphabetTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void itShouldThrowAnExceptionIfEncodingOutsideAlphabet() {
+        assertThrows(Exception.class,
+                () -> natoAlphabet.encode(""),
+                "input outside NATO alphabet");
+    }
+
+    @Test
+    public void itShouldThrowAnExceptionIfDecodingOutsideAlphabet() {
+        assertThrows(Exception.class,
+                () -> natoAlphabet.decode(""),
+                "input outside NATO alphabet");
+    }
+
 }
